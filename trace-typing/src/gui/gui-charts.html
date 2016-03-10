@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Trace typing charts</title>
+    <link rel="stylesheet" href="style-charts.css">
+</head>
+<body>
+<div id="charts"></div>
+<div id="charts_TEST"></div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="setupCharts.js"></script>
+<script type="text/javascript">
+    google.load('visualization', '1', {
+        'packages': ['bar']
+    });
+    google.setOnLoadCallback(window.drawCharts);
+</script>
+</body>
+</html>

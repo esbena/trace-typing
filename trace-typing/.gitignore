@@ -1,0 +1,16 @@
+/build
+/config.js
+tscommand-*.tmp.txt
+.tscache
+.idea
+/typings
+/node_modules
+**/.baseDir.js
+**/*_jalangi_.js
+**/*_jalangi_.json
+**/.baseDir.ts
+**/.baseDir.js.map
+/src/**/*.js
+/src/**/*.js.map
+/test/**/*.js
+/test/**/*.js.map

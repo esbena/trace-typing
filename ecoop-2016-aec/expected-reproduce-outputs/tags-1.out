@@ -1,0 +1,48 @@
+Replaying...
+Type ascription...
+Type propagation...
+Finding successiveReads ...
+|successiveReads|: 460957
+Finding refinedReads ...
+|refinedReads|: 498
+Outputting ...
+out/type-guard-lines/underscore_orig_.js@f7f4e7c0fef404879d572945ce71580f.txt
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:151     if (isArrayLike(obj)) {
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1371     return _.isFunction(value) ? value.call(object) : value;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:153         iteratee(obj[i], i, obj);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1214     var type = typeof obj;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:156       var keys = _.keys(obj);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:158         iteratee(obj[keys[i]], keys[i], obj);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:88     if (value == null) return _.identity;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:89     if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:167     var keys = !isArrayLike(obj) && _.keys(obj),
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:168         length = (keys || obj).length,
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:171       var currentKey = keys ? keys[index] : index;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:227       if (predicate(value, index, list)) results.push(value);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:313         computed = iteratee(value, index, list);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:494       if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:603     for (var i = 0, length = getLength(list); i < length; i++) {
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:730         args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:732       while (position < arguments.length) args.push(arguments[position++]);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:735     return bound;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:152       for (i = 0, length = obj.length; i < length; i++) {
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1045     if (_.isFunction(iteratee)) {
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:101       if (length < 2 || obj == null) return obj;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:108           if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1099     if (a === b) return a !== 0 || 1 / a === 1 / b;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1101     if (a == null || b == null) return a === b;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1103     if (a instanceof _) a = a._wrapped;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1106     var className = toString.call(a);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1104     if (b instanceof _) b = b._wrapped;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1107     if (className !== toString.call(b)) return false;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1132       if (typeof a != 'object' || typeof b != 'object') return false;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1136       var aCtor = a.constructor, bCtor = b.constructor;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1158     aStack.push(a);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1159     bStack.push(b);
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1154       if (aStack[length] === a) return bStack[length] === b;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1196     if (obj == null) return true;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1197     if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1368     if (value === void 0) {
+../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1027     if (_.isFunction(oiteratee)) {
+
+Finished 'Finding Tag Tests' for /home/esbena/_data/trace-typing/ecoop-2016-aec/../trace-production/tests/exercisedApps/underscore/main.js

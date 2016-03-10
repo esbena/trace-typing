@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+var cp = require('child_process');
+var util = require('util');
+var path = require('path');
+
+var TRACE_PRODUCTION = __dirname + "/../trace-production";
+var TRACE_TYPING = __dirname + "/../trace-typing";
+var exercisedApps = TRACE_PRODUCTION + "/tests/exercisedApps";
+
+var args = process.argv;
+try{
+    switch (args[2]){
+    case "variants-0":
+        attempt(variants, 0);
+        break;
+    case "variants-1":
+        attempt(variants, 1);
+        break;
+    case "tags-0":
+        attempt(tags, 0);
+        break;
+    case "tags-1":
+        attempt(tags, 1);
+        break;
+    case "fixed-0":
+        attempt(fixed, 0);
+        break;
+    case "fixed-1":
+        attempt(fixed, 1);
+        break;
+    default:
+        throw new Error("Unsupported argument: " + args[2]);
+    }
+}catch(e){
+    throw e;
+    //console.error("Something went wrong: " + e.message);
+}
+
+function attempt(f, arg){
+    try{
+        f(arg);
+    }catch(e){
+        throw e;
+        //throw new Error("Something went wrong: " + e.message);
+    }
+}
+
+function cli(mode, target, targetdir){
+    var cmd = util.format("node dist/src/playground/CLI.js %s %s %s", mode, path.normalize(target), path.normalize(targetdir));
+    cp.execSync(cmd, {cwd: TRACE_TYPING, stdio:[0,1,2]});
+}
+
+function variants(n){
+    var configs = [{
+        target: exercisedApps + "/lazy.js",
+        system: "ObjectFieldLubUnderSubtyping:FunctionIntersection::UnionTypes:flowInsensitiveVariables",
+        pretty_system: "union|intersect"
+    }, {
+        target: exercisedApps + "/underscore",
+        system: "ObjectFieldLubUnderSubtyping:FunctionPointwiseLub::flowInsensitiveVariables",
+        pretty_system: "subtyping|base"
+    }];
+    var config = configs[n];
+    var dir = config.target;
+    var main = dir + "/main.js";
+    cli("typeCheck::" + config.system, main, dir);
+    console.log("Finished 'Comparing Type System Variants' for %s using system ", main, config.pretty_system);
+}
+
+function tags(n){
+    var configs = [{
+        target: exercisedApps + "/lazy.js"
+    }, {
+        target: exercisedApps + "/underscore"
+    }];
+    var config = configs[n];
+    var dir = config.target;
+    var main = dir + "/main.js";
+    cli('tags', main, dir);
+    console.log("Finished 'Finding Tag Tests' for %s", main);
+}
+
+function fixed(n){
+    var configs = [{
+        target: exercisedApps + "/lazy.js"
+    }, {
+        target: exercisedApps + "/underscore"
+    }];
+    var config = configs[n];
+    var dir = config.target;
+    var main = dir + "/main.js";
+    cli('fixed', main, dir);
+    console.log("Finished 'Evaluating Fixed Object Layout' for %s", main);
+}
+/// Local Variables:
+/// mode: js2
+/// End:

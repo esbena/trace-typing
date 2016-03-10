@@ -1,0 +1,10 @@
+Type ascription...
+Type propagation...
+Type checked 100000 statements
+Failure information (3 entries):
+    ../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:39:11: Instance property types are not invariant wrt. the prototype properties
+    ../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:711:3: .bind is read-only
+    ../out/instrumentations/underscore/node_modules/underscore/underscore_orig_.js:1493:18: .bind is read-only
+/Failure information (3 entries)
+
+Finished 'Evaluating Fixed Object Layout' for /home/esbena/_data/trace-typing/ecoop-2016-aec/../trace-production/tests/exercisedApps/underscore/main.js
